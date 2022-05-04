@@ -3,13 +3,18 @@
     "id": "Arnold",
     "city": { "value": "norrköping", "label": "Norrköping" },
     "company": { "value": "kolmården", "label": "Kolmården" },
-    "position": { "value": "vetrinär", "label": "Vetrinär" }
+    "position": { "value": "vetrinär", "label": "Vetrinär" },
+    "createdDate": 1630657651061
   },
   {
     "id": "Sly",
     "city": { "value": "norrköping", "label": "Norrköping" },
     "company": { "value": "kolmården", "label": "Kolmården" },
-    "position": { "value": "parkvärd", "label": "Parkvärd" }
+    "position": { "value": "parkvärd", "label": "Parkvärd" },
+    "createdDate": 1651669879887
+  },
+  {
+    "id": "Empty for testing purposes"
   },
   {
     "id": "Dolph",
@@ -24,7 +29,10 @@
     "id": "Bruce",
     "city": { "value": "norrköping", "label": "Norrköping" },
     "company": { "value": "vetrinärsklinkiken", "label": "Vetrinärskliniken" },
-    "position": { "value": "vetrinär", "label": "Vetrinär" }
+    "position": { "value": "vetrinär", "label": "Vetrinär" },
+
+    "url": "https://www.linkedin.com/in/marcuskullman",
+    "bio": "I create machine learning tutorials."
   },
   {
     "id": "Jean-Claude",
@@ -33,7 +41,13 @@
     "position": { "value": "vetrinär", "label": "Vetrinär" }
   },
   {
-    "id": "Jean-Claude",
+    "id": "Clint",
+    "city": { "value": "stockholm", "label": "Stockholm" },
+    "company": { "value": "grönalund", "label": "Grönalund" },
+    "position": { "value": "parkvärd", "label": "Parkvärd" }
+  },
+  {
+    "id": "Chuck",
     "city": { "value": "söderköping", "label": "Söderköping" },
     "company": {
       "value": "söderköpingskommun",

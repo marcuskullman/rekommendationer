@@ -5,8 +5,38 @@
 }
 
 table {
-  table-layout: fixed;
   width: 100%;
   text-align: left;
   margin: 64px auto;
+  background: #f2f2f2;
+}
+
+tr {
+  position: relative;
+}
+
+tr:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--width);
+  height: 100%;
+  opacity: 0.2;
+}
+
+tr.red:after {
+  background-color: red;
+}
+
+tr.yellow:after {
+  background-color: orange;
+}
+
+tr.green:after {
+  background-color: green;
+}
+
+tr.average td {
+  border-top: 1px dashed black;
 }

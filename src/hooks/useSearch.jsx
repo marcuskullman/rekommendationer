@@ -77,7 +77,6 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
   // For sorting
   let sumOfProducts = 0
 
-  // Not used, but consider adding a grade to each candidate to account for old data, un-complete profiles and so forth to.
   // Data quality is key
   const sortByGrade = (a, b) => {
     if (a.grade && !b.grade) return -1
@@ -171,7 +170,7 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
     result.length > 2
       ? result.find(
           candidate => candidate.product < sumOfProducts / result.length
-        )?.createdDate || null
+        )?.id || null
       : null
 
   return {

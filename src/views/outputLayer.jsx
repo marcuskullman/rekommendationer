@@ -1,7 +1,10 @@
 import { useAppContext } from "../hooks"
 
 const OutputLayer = () => {
-  const [{ result }, dispatch] = useAppContext()
+  const [{ result, average }, dispatch] = useAppContext()
+
+  const getStatus = input =>
+    input < 20 ? "red" : input < 80 ? "yellow" : "green"
 
   return (
     <>
@@ -20,18 +23,28 @@ const OutputLayer = () => {
             </tr>
           </thead>
           <tbody>
-            {result.map(({ id, company, city, position }, i) => (
-              <tr key={i}>
-                <td>{id}</td>
-                <td>{company.label}</td>
-                <td>{city.label}</td>
-                <td>{position.label}</td>
-              </tr>
-            ))}
+            {result.map(
+              ({ id, company, city, position, createdDate, grade }, i) => (
+                <tr
+                  key={i}
+                  className={`
+                    ${
+                      // eslint-disable-next-line
+                      id == average ? "average" : ""
+                    } ${getStatus(grade || 0)}`}
+                  style={{ "--width": `${Math.max(grade || 0, 0.25) + "%"}` }}
+                >
+                  <td>{id}</td>
+                  <td>{company?.label || "-"}</td>
+                  <td>{city?.label || "-"}</td>
+                  <td>{position?.label || "-"}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       ) : (
-        <p>Inga träffar.</p>
+        <p>Inga träffar. 😭</p>
       )}
     </>
   )

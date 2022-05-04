@@ -1,11 +1,15 @@
 import { useEffect, useState, useRef } from "react"
-import { useAppContext } from "../hooks"
+import { useAppContext, useGrade } from "../hooks"
 import Select from "react-select"
 
 const InputLayer = () => {
   const [context, dispatch] = useAppContext()
   const [input, setInput] = useState(context.query)
   const valueRef = useRef()
+
+  // Bonus: adds a grade to each candidate to account for old data, un-complete profiles and so forth.
+  // Data quality is key
+  const Grade = candidates => useGrade({ candidates })
 
   useEffect(() => {
     const candidates = require("../dataset.json")
@@ -37,7 +41,7 @@ const InputLayer = () => {
       arr.sort((a, b) => (a.value > b.value ? 1 : b.value > a.value ? -1 : 0))
 
     dispatch({
-      candidates,
+      candidates: Grade(candidates),
       companies: sort(companies),
       cities: sort(cities),
       positions: sort(positions),
