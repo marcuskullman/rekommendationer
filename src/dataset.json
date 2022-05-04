@@ -1,56 +1,56 @@
 [
   {
     "id": "Arnold",
-    "city": { "label": "norrköping", "value": "Norrköping" },
-    "company": { "label": "kolmården", "value": "Kolmården" },
-    "position": { "label": "vetrinär", "value": "Vetrinär" }
+    "city": { "value": "norrköping", "label": "Norrköping" },
+    "company": { "value": "kolmården", "label": "Kolmården" },
+    "position": { "value": "vetrinär", "label": "Vetrinär" }
   },
   {
     "id": "Sly",
-    "city": { "label": "norrköping", "value": "Norrköping" },
-    "company": { "label": "kolmården", "value": "Kolmården" },
-    "position": { "label": "parkvärd", "value": "Parkvärd" }
+    "city": { "value": "norrköping", "label": "Norrköping" },
+    "company": { "value": "kolmården", "label": "Kolmården" },
+    "position": { "value": "parkvärd", "label": "Parkvärd" }
   },
   {
     "id": "Dolph",
-    "city": { "label": "norrköping", "value": "Norrköping" },
+    "city": { "value": "norrköping", "label": "Norrköping" },
     "company": {
-      "label": "it-konsultmarcuskullmanab",
-      "value": "IT-konsult Marcus Kullman AB"
+      "value": "it-konsultmarcuskullmanab",
+      "label": "IT-konsult Marcus Kullman AB"
     },
-    "position": { "label": "it-konsult", "value": "IT-konsult" }
+    "position": { "value": "it-konsult", "label": "IT-konsult" }
   },
   {
     "id": "Bruce",
-    "city": { "label": "norrköping", "value": "Norrköping" },
-    "company": { "label": "vetrinärsklinkiken", "value": "Vetrinärskliniken" },
-    "position": { "label": "vetrinär", "value": "Vetrinär" }
+    "city": { "value": "norrköping", "label": "Norrköping" },
+    "company": { "value": "vetrinärsklinkiken", "label": "Vetrinärskliniken" },
+    "position": { "value": "vetrinär", "label": "Vetrinär" }
   },
   {
     "id": "Jean-Claude",
-    "city": { "label": "söderköping", "value": "Söderköping" },
-    "company": { "label": "vetrinärsklinkiken", "value": "Vetrinärskliniken" },
-    "position": { "label": "vetrinär", "value": "Vetrinär" }
+    "city": { "value": "söderköping", "label": "Söderköping" },
+    "company": { "value": "vetrinärsklinkiken", "label": "Vetrinärskliniken" },
+    "position": { "value": "vetrinär", "label": "Vetrinär" }
   },
   {
     "id": "Jean-Claude",
-    "city": { "label": "söderköping", "value": "Söderköping" },
+    "city": { "value": "söderköping", "label": "Söderköping" },
     "company": {
-      "label": "söderköpingskommun",
-      "value": "Söderköpings kommun"
+      "value": "söderköpingskommun",
+      "label": "Söderköpings kommun"
     },
-    "position": { "label": "parkvärd", "value": "Parkvärd" }
+    "position": { "value": "parkvärd", "label": "Parkvärd" }
   },
   {
     "id": "Mel",
-    "city": { "label": "norrköping", "value": "Norrköping" },
-    "company": { "label": "volvo", "value": "Volvo" },
-    "position": { "label": "mekaniker", "value": "Mekaniker" }
+    "city": { "value": "norrköping", "label": "Norrköping" },
+    "company": { "value": "volvo", "label": "Volvo" },
+    "position": { "value": "mekaniker", "label": "Mekaniker" }
   },
   {
     "id": "Harrison",
-    "city": { "label": "stockholm", "value": "Stockholm" },
-    "company": { "label": "grönalund", "value": "Grönalund" },
-    "position": { "label": "vetrinär", "value": "Vetrinär" }
+    "city": { "value": "stockholm", "label": "Stockholm" },
+    "company": { "value": "grönalund", "label": "Grönalund" },
+    "position": { "value": "vetrinär", "label": "Vetrinär" }
   }
 ]

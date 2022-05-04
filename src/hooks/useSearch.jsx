@@ -1,6 +1,6 @@
 const bfs = ({ query, graph }) => {
-  const visited = new Set([query.value])
-  const queue = [query.value]
+  const visited = new Set([query.value.value])
+  const queue = [query.value.value]
 
   // eslint-disable-next-line
   search: while (queue.length) {
@@ -27,7 +27,7 @@ const bfs = ({ query, graph }) => {
 
 // eslint-disable-next-line
 const dfs = ({ query, graph }) => {
-  const visited = new Set([query.value])
+  const visited = new Set([query.value.value])
   const helper = query => {
     const neighbors = graph.get(query).keys()
 
@@ -43,25 +43,27 @@ const dfs = ({ query, graph }) => {
     }
   }
 
-  helper(query.value)
+  helper(query.value.value)
 
   return visited
 }
 
 export const useSearch = ({ query, graph, filterArr, candidates }) => {
-  const isCompanySearch = query.key === "companies"
+  const isCompanySearch = query.key.value === "companies"
 
   // Search
   let searchResult = bfs({ query, graph })
 
   // Delete the current company form the search array
-  isCompanySearch && searchResult.delete(query.value)
+  isCompanySearch && searchResult.delete(query.value.value)
 
   // Filter
   searchResult = Array.from(searchResult).filter(res => filterArr.includes(res))
 
   // Positions
-  let positions = query.positions?.map(position => position.value) || []
+  let positions = query.positions
+    ? query.positions.map(position => position.value)
+    : []
 
   // Generate Fibonacci sequence helper
   // The further away a matching candidate is, the less important the difference to the previous city is.
@@ -75,7 +77,8 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
   // For sorting
   let sumOfProducts = 0
 
-  // Not used, but consider adding a grade to account for old data, un-complete profiles and so forth
+  // Not used, but consider adding a grade to each candidate to account for old data, un-complete profiles and so forth to.
+  // Data quality is key
   const sortByGrade = (a, b) => {
     if (a.grade && !b.grade) return -1
     if (b.grade && !a.grade) return 1
@@ -91,7 +94,7 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
       let { company, position } = candidate
 
       if (!position) {
-        // If a candidate doesn have position he/she will never be included in the result... Could be improved
+        // If a candidate doesn't have a position he/she will never be included in the result... Could be improved
         return null
       }
 
@@ -100,7 +103,9 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
 
       if (isCompanySearch && query.value.value === company) {
         // Create array of position held within the current company
-        if (!query.positions.length) positions.push(position)
+        if (!query.positions?.length) {
+          positions.push(position)
+        }
 
         // Do not include people from within the same company
         if (!query.sameCompany) {
@@ -119,7 +124,7 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
 
   // Create object from positions to prepare for weight calculation
   let counter = 0
-  let positionsObject = query.c
+  let positionsObject = query.positions
     ? positions.reverse().reduce((acc, position, i) => {
         const value = (i % positions.length) + 1
         acc[position] = value
@@ -146,9 +151,9 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
 
       // If given position(s) they are prioritized by order
       // If no given positions factor in most common positions at the company
-      // TODO - Robin hood läget robinHoodMode
       let points =
-        positionsObject[position.value] / (query.c ? counter : positions.length)
+        positionsObject[position.value] /
+        (query.positions ? counter : positions.length)
 
       // Calculate product
       const product = points * weight
@@ -169,7 +174,6 @@ export const useSearch = ({ query, graph, filterArr, candidates }) => {
         )?.createdDate || null
       : null
 
-  // Store result in global state
   return {
     result: result.slice(0, query.limit),
     average,

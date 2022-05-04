@@ -9,7 +9,9 @@ const HiddenLayer = () => {
     candidates,
     query,
     graph,
-    filterArr: context[query.key.value].map(o => o.value),
+    filterArr: context[
+      query.key.value === "companies" ? "cities" : "companies"
+    ].map(o => o.value),
   })
 
   useEffect(() => dispatch({ ...search, view: "output" }), [search, dispatch])

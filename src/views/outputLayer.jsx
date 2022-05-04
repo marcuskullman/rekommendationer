@@ -1,9 +1,7 @@
 import { useAppContext } from "../hooks"
 
 const OutputLayer = () => {
-  const [context, dispatch] = useAppContext()
-
-  console.log(context)
+  const [{ result }, dispatch] = useAppContext()
 
   return (
     <>
@@ -11,19 +9,30 @@ const OutputLayer = () => {
       <button type="button" onClick={() => dispatch({ view: "input" })}>
         Ny sökning
       </button>
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Företag</th>
-            <th>Stad</th>
-            <th>Roll</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr></tr>
-        </tbody>
-      </table>
+      {result.length ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Företag</th>
+              <th>Stad</th>
+              <th>Roll</th>
+            </tr>
+          </thead>
+          <tbody>
+            {result.map(({ id, company, city, position }, i) => (
+              <tr key={i}>
+                <td>{id}</td>
+                <td>{company.label}</td>
+                <td>{city.label}</td>
+                <td>{position.label}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>Inga träffar.</p>
+      )}
     </>
   )
 }
